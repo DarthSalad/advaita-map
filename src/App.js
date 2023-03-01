@@ -169,7 +169,7 @@ const App = () => {
             bottom: 0,
           }}
         >
-          <a href="https://advaita-iiitbh.in" target="_blank">
+          <a href="https://advaita-iiitbh.in" target="_blank" rel="noreferrer">
             <div className="logo" style={{
               display: "flex",
               justifyContent: "center",
