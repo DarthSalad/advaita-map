@@ -6,12 +6,17 @@ import {
   PushpinFilled,
   ProfileFilled,
   StarFilled,
+  FacebookFilled,
+  InstagramFilled,
+  YoutubeFilled,
+  ChromeFilled,
 } from '@ant-design/icons';
 import "./styles.css"
 import { Layout, Menu, theme } from 'antd';
 import Ongoing from './components/Ongoing';
 import Events from './components/Events';
 import Pronites from './components/Pronites';
+import {ReactComponent as Logo} from './assets/logo.svg'
 
 const { Header, Sider, Content, Footer } = Layout;
 
@@ -145,7 +150,7 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <Layout style={{ margin: "0px" }} hasSider>
+      <Layout style={{ margin: "0px" }}>
         <Sider
           breakpoint="lg"
           collapsedWidth="0"
@@ -156,7 +161,7 @@ const App = () => {
             console.log(collapsed, type);
           }}
           style={{
-            overflow: 'auto',
+            // overflow: 'auto',
             height: '100vh',
             position: 'fixed',
             left: 0,
@@ -164,8 +169,15 @@ const App = () => {
             bottom: 0,
           }}
         >
-          <div className="logo">
-          </div>
+          <a href="https://advaita-iiitbh.in" target="_blank">
+            <div className="logo" style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}>
+              <Logo />
+            </div>
+          </a>
           <Menu
             theme="dark"
             mode="inline"
@@ -173,7 +185,7 @@ const App = () => {
           >
             {menuItems.map((item) => {
               return (
-                <Menu.Item key={item.key} onClick={() => { setCurrent(item.key); console.log(current) }}>
+                <Menu.Item key={item.key} onClick={() => setCurrent(item.key)}>
                   {item.icon}
                   <NavLink
                     to={item.link}
@@ -186,10 +198,11 @@ const App = () => {
             })}
           </Menu>
         </Sider>
-        <Layout className="site-layout" style={{ marginLeft: 200 }}>
+        <Layout className="site-layout break">
           <Header style={{ padding: 0, background: colorBgContainer }} >
             <h1 style={{ color: "red", fontSize: "1.5rem", paddingLeft: "30px" }}>Advaita Events</h1>
           </Header>
+          <div className="flex-wrapper">
           <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
             <div style={{ padding: 24, background: colorBgContainer }}>
               <Routes>
@@ -200,7 +213,26 @@ const App = () => {
               </Routes>
             </div>
           </Content>
-          <Footer style={{ textAlign: 'center' }}>Tech Team - Advaita 2023</Footer>
+          <Footer style={{ textAlign: "center" }}>
+            <div className="footer-left">
+                Advaita 2023
+            </div><br />
+            <div>
+                <a href="https://advaita-iiitbh.in/" target="_blank" rel="noreferrer" style={{paddingRight: "10px"}}>
+                    <ChromeFilled style={{color: "black", fontSize: "1.5rem"}}/>
+                </a>
+                <a href="https://instagram.com/advaita_iiitbh" target="_blank" rel="noreferrer" style={{paddingRight: "10px"}}>
+                    <InstagramFilled style={{color: "black", fontSize: "1.5rem"}}/>
+                </a>
+                <a href="https://youtube.com/channel/UCkULTsUj0_Ukm9DWOtin5yw" target="_blank" rel="noreferrer" style={{paddingRight: "10px"}}>
+                    <YoutubeFilled style={{color: "black", fontSize: "1.5rem"}}/>
+                </a>
+                <a href="https://facebook.com/advaita.iiit" target="_blank" rel="noreferrer" style={{paddingRight: "10px"}}>
+                    <FacebookFilled style={{color: "black", fontSize: "1.5rem"}}/>
+                </a>
+            </div>
+          </Footer>
+          </div>
         </Layout>
       </Layout>
     </BrowserRouter>
