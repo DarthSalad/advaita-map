@@ -175,6 +175,7 @@ const App = () => {
             left: 0,
             top: 0,
             bottom: 0,
+            zIndex: 1000,
           }}
         >
           <a href="https://advaita-iiitbh.in" target="_blank" rel="noreferrer">
