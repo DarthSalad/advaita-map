@@ -10,12 +10,14 @@ import {
   InstagramFilled,
   YoutubeFilled,
   ChromeFilled,
+  EnvironmentFilled,
 } from '@ant-design/icons';
 import "./styles.css"
 import { Layout, Menu, theme } from 'antd';
 import Ongoing from './components/Ongoing';
 import Events from './components/Events';
-import Pronites from './components/Pronites';
+import Social from "./components/Social";
+import Pronites from "./components/Pronites";
 import {ReactComponent as Logo} from './assets/logo.svg'
 
 const { Header, Sider, Content, Footer } = Layout;
@@ -145,6 +147,12 @@ const App = () => {
       icon: <StarFilled />,
       label: 'Pro-Nights',
       link: "/events/pronights"
+    },
+    {
+      key: 4,
+      icon: <EnvironmentFilled />,
+      label: 'Social Events',
+      link: "/events/social"
     }
   ]
 
@@ -210,6 +218,7 @@ const App = () => {
                 <Route exact path="/events" element={<Ongoing tech={tech} cult={cult} photo={photo} lit={lit} sports={sports} art={art} fats={fats} food={food} loading={loading}/>} />
                 <Route exact path="/events/all" element={<Events tech={tech} cult={cult} photo={photo} lit={lit} sports={sports} art={art} fats={fats} food={food} loading={loading} />} />
                 <Route exact path="/events/pronights" element={<Pronites />} />
+                <Route exact path="/events/social" element={<Social />} />
               </Routes>
             </div>
           </Content>
